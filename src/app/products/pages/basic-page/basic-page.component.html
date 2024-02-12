@@ -1,0 +1,68 @@
+<p-panel header="Pipes Basicos" class="p-2">
+        <p>Pipes incluidos en angular</p>
+</p-panel>
+<div class="grid">
+    <div class="col-4">
+        <p-card header="Lowercase">
+            {{lowercase | lowercase}}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="Uppercase">
+            {{uppercase | uppercase }}
+        </p-card>
+    </div>
+    <div class="col-4">
+        <p-card header="Titlecase">
+            {{title | titlecase}}
+        </p-card>
+    </div>
+</div>
+
+<p-table [value]="dates">
+    <ng-template pTemplate="header" >
+        <tr>
+            <th>Format</th>
+            <th>Example Value</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-date>
+        <tr>
+            <td>fecha | date</td>
+            <td>{{customDate | date}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'short'</td>
+            <td>{{customDate | date:'short'}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'long'</td>
+            <td>{{customDate | date:'long'}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'full'</td>
+            <td>{{customDate | date:'full'}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'shortDate'</td>
+            <td>{{customDate | date:'shortDate'}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'mediumTime'</td>
+            <td>{{customDate | date:'mediumTime'}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'YY/MM/dd'</td>
+            <td>{{customDate | date:'YY/MM/dd'}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'long':'GMT-4'</td>
+            <td>{{customDate | date:'long':'GMT-4'}}</td>
+        </tr>
+        <tr>
+            <td>fecha | date:'long:'GMT-6'</td>
+            <td>{{customDate | date:'long':'':'es-PE'}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
