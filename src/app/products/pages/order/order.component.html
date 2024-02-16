@@ -1,0 +1,46 @@
+<p-panel header="Pipes Basicos" class="p-2">
+  <p>
+    Pipes Personalisados
+    {{ "Hola teste de togle Pipe" | togleCase : exceptions }}
+  </p>
+  <p-toolbar>
+    <div class="p-toolbar-group-left">
+      
+        <input pInputText type="text"
+        placeholder='to lowercase "de"'
+        class="form-control"
+        (keyup.enter)="changeExceptions([txtValue.value])"
+        #txtValue />
+        
+    </div>
+  
+    <div class="p-toolbar-group-right">
+      <p-button icon="pi pi-sort" styleClass="p-button-success" label="Por nombre"
+      (onClick)="changeSortBy('name')"></p-button>
+      <p-button icon="pi pi-sort" styleClass="p-button-danger mx-2" label="Por valor"
+      (onClick)="changeSortBy('canFly')"></p-button>
+      <p-button icon="pi pi-sort" styleClass="p-button-help" label="Por color"
+      (onClick)="changeSortBy('color')"></p-button>
+    </div>
+  </p-toolbar>
+
+  <p-panel header="Heroes" styleClass="mt-2">
+      <p-table [value]="heroes | sortBy:orderBy" [tableStyle]="{'min-width': '50rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Can Fly</th>
+                <th>Color</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-heroes>
+            <tr>
+                <td>{{ heroes.name }}</td>
+                <td>{{ heroes.canFly | canFly}}</td>
+                <td>{{ heroes.color }}</td>
+            </tr>
+        </ng-template>
+        </p-table>
+  </p-panel>
+
+</p-panel>
